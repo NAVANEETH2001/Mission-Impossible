@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n,m;
+cin >> m;
+cin >> n;
+int arr[m][n];
+int i,j;
+for(i = 0; i < m; i++)
+{
+for(j = 0; j < n; j++)
+{
+cin >> arr[i][j];
+}
+}
+
+
+int k = 0, l = 0;
+while(k < m && l < n)
+{
+// Print First Row
+    for (int p = l; p < n; p++)
+        cout << arr[k][p] << " ";
+
+    // Print Last Column
+    for (int p = k + 1; p < m; p++)
+        cout << arr[p][n - 1] << " ";
+
+    // Print Last Row, if Last and
+    // First Row are not same
+    if ((m - 1)!= k)
+        for (int p = n - 2; p >= l; p--)
+            cout << arr[m - 1][p] << " ";
+
+    // Print First Column, if Last and
+    // First Column are not same
+    if ((n - 1)!= l)
+        for (int p = m - 2; p > k; p--)
+            cout << arr[p][l] << " ";
+
+    k++;
+    l++;
+    m--;
+    n--;
+}
+
+cout << endl;
+return 0;
+}
